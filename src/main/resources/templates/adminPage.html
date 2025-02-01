@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+
+</head>
+<body>
+
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
+
+
+<h1>Admin panel</h1>
+
+<a class="nav-link active" data-toggle="tab">Users Table</a>
+<a class="nav-link" data-toggle="tab" th:href="@{/add}">New User</a>
+
+
+<h4>All users</h4>-->
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Login</th>
+        <th>Role</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}">id</td>
+        <td th:text="${user.name}">name</td>
+        <td th:text="${user.surname}">surname</td>
+        <td th:text="${user.age}">age</td>
+        <td th:text="${user.email}">email</td>
+        <td th:text="${user.login}">login</td>
+        <td th:text="${user.roles}">roles</td>
+        <td>
+            <form th:action="@{/edit}">
+                <button type="submit" th:name="id" th:value="${user.id}">Edit</button>
+            </form>
+        </td>
+        <td>
+            <form method="post" th:action="@{/delete}">
+                <button type="submit" th:name="id" th:value="${user.id}">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

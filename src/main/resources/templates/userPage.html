@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>User Page</title>
+</head>
+<body>
+
+<form th:action="@{/logout}" method="post">
+    <button type="submit" class="btn btn-dark text-secondary">Logout</button>
+</form>
+
+<table class="usersTable table table-striped bg-white">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Login</th>
+        <th>Role</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.surname}"></td>
+        <td th:text="${user.age}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.login}"></td>
+        <td>
+            <th:block th:each="role: ${user.roles}"
+                      th:text="${role} + ' '">
+            </th:block>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

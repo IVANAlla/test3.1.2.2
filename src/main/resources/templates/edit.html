@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Create user</title>
+</head>
+<body>
+<form action="#" th:action="@{/edit}" method="Post" th:object="${user}">
+    <label for="id"><b>Id</b></label>
+    <input readonly type="text" th:name="id" th:field="*{id}" th:value="${user.id}" class="form-control" id="id"/>
+    <br>
+    <br>
+
+    <label for="name"><b>Name</b></label>
+    <input th:type="text" th:field="*{name}" th:value="${user.name}" class="form-control" id="name" placeholder="name"/>
+    <br>
+    <br>
+    <label for="surname"><b>Surname</b></label>
+    <input th:type="text" th:field="*{surname}" th:value="${user.surname}" class="form-control" id="surname"
+           placeholder="surname"/>
+    <br><br>
+    <label for="age"><b>Age</b></label>
+    <input th:type="text" th:field="*{age}" th:value="${user.age}" class="form-control" id="age" placeholder="age"/>
+    <br>
+    <br>
+    <label for="email"><b>Email</b></label>
+    <input th:type="text" th:field="*{email}" th:value="${user.email}" class="form-control" id="email"
+           placeholder="email"/>
+    <br>
+    <br>
+
+    <label for="login"><b>Login</b></label>
+    <input th:name="login" th:type="text" class="form-control" th:value="${user.login}" id="login" required/>
+    <br>
+    <br><br>
+    <label for="password"><b>Password</b></label>
+
+    <input th:type="password" th:field="*{password}" th:value="${user.password}" class="form-control" id="password"
+           placeholder="password" required/><br>
+    <br><br><br>
+
+    <label for="roles"><b>Role</b></label>
+    <select multiple class="form-control form-control-sm" id="roles" name="roles" size="2" required>
+        <option th:each="role: ${roles}" th:value="${role.userRole}" th:selected="${user.roles.contains(role)}">
+            <th:block th:text="${role.userRole}">
+            </th:block>
+        </option>
+    </select>
+    <br><br><br>
+    <button th:type="submit">Edit new user</button>
+
+    <br><br> <br><br>
+    <a class="nav-link" data-toggle="tab" th:href="@{/add}">New User</a>
+
+
+</form>
+</body>
+</html>
