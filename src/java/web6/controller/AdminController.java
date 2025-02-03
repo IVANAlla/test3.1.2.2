@@ -11,7 +11,7 @@ import web6.service.UserService;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/admin")
 public class AdminController {
     private final UserService userService;
     private final RoleService roleService;
@@ -22,10 +22,10 @@ public class AdminController {
         this.roleService = roleService;
     }
 
-    @GetMapping("/admin")
+    @GetMapping
     public String showAdminPage(User user, Model model) {
         model.addAttribute("users", userService.getAllUsers());
-        model.addAttribute("user", user);
+//        model.addAttribute("user", user);
         model.addAttribute("roles", roleService.getAllRoles());
         return "/adminPage";
     }

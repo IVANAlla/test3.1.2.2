@@ -6,7 +6,7 @@
     <title>Create user</title>
 </head>
 <body>
-<form action="#" th:action="@{/edit}" method="Post" th:object="${user}">
+<form action="#" th:action="@{/admin/edit}" method="Post" th:object="${user}">
     <label for="id"><b>Id</b></label>
     <input readonly type="text" th:name="id" th:field="*{id}" th:value="${user.id}" class="form-control" id="id"/>
     <br>
@@ -51,7 +51,7 @@
     <button th:type="submit">Edit new user</button>
 
     <br><br> <br><br>
-    <a class="nav-link" data-toggle="tab" th:href="@{/add}">New User</a>
+    <a class="nav-link" data-toggle="tab" th:href="@{admin/add}">New User</a>
 
 
 </form>

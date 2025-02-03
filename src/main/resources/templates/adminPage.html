@@ -18,8 +18,9 @@
 
 <h1>Admin panel</h1>
 
-<a class="nav-link active" data-toggle="tab">Users Table</a>
-<a class="nav-link" data-toggle="tab" th:href="@{/add}">New User</a>
+<a class="nav-link active" data-toggle="tab" th:href="@{/user}" >User Table</a>
+<!---->
+<a class="nav-link" data-toggle="tab" th:href="@{/admin/add}">New User</a>
 
 
 <h4>All users</h4>-->
@@ -45,12 +46,12 @@
         <td th:text="${user.login}">login</td>
         <td th:text="${user.roles}">roles</td>
         <td>
-            <form th:action="@{/edit}">
+            <form th:action="@{/admin/edit}">
                 <button type="submit" th:name="id" th:value="${user.id}">Edit</button>
             </form>
         </td>
         <td>
-            <form method="post" th:action="@{/delete}">
+            <form method="post" th:action="@{/admin/delete}">
                 <button type="submit" th:name="id" th:value="${user.id}">Delete</button>
             </form>
         </td>
