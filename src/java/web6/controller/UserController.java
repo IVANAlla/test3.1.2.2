@@ -8,12 +8,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import web6.model.User;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/user")
 public class UserController {
 
     @GetMapping(value = "login")
     public String loginPage() {
         return "login";
+    }
+
+    @GetMapping(value = "/form")
+    public String loginForm() {
+        return "/form";
     }
 
     @GetMapping("/user")

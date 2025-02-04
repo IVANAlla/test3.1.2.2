@@ -6,7 +6,6 @@ import web6.model.Role;
 import web6.model.User;
 import web6.service.RoleService;
 import web6.service.UserService;
-
 import javax.annotation.PostConstruct;
 import java.util.HashSet;
 import java.util.Set;

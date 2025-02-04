@@ -11,14 +11,14 @@
 <body>
 
 
-<form th:action="@{/logout}" method="post">
+<form th:action="@{/user/logout}" method="post">
     <button type="submit">Logout</button>
 </form>
 
 
 <h1>Admin panel</h1>
 
-<a class="nav-link active" data-toggle="tab" th:href="@{/user}" >User Table</a>
+<a class="nav-link active" data-toggle="tab" th:href="@{/user/user}" >User Table</a>
 <!---->
 <a class="nav-link" data-toggle="tab" th:href="@{/admin/add}">New User</a>
 
